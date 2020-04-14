@@ -1,0 +1,42 @@
+.App {
+  display: grid;
+  grid-template-rows: 100px auto;
+  grid-template-columns: 100px auto;
+  grid-template-areas: 'header header' 'nav articleList' 'footer footer';
+}
+
+.NavBar {
+  grid-area: nav;
+  border: solid;
+}
+
+.Header {
+  grid-area: header;
+  border: solid;
+}
+
+.ArticleList {
+  grid-area: articleList;
+}
+
+.ArticleCard {
+  border: solid;
+}
+
+.ArticleHeader {
+  display: inline-flex;
+}
+
+.CommentCard {
+  border: solid;
+  margin: 5px;
+}
+
+.CommentHeader {
+  display: inline-flex;
+}
+
+.commentForm {
+  height: 200px;
+  margin: 5px;
+}
