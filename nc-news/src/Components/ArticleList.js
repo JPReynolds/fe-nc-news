@@ -3,6 +3,7 @@ import * as api from '../utils/api';
 import { Link } from '@reach/router';
 import ArticleCard from './ArticleCard';
 import Loader from './Loader';
+import SortArticles from './SortArticles';
 
 class ArticleList extends Component {
   state = {
@@ -20,8 +21,8 @@ class ArticleList extends Component {
     }
   }
 
-  fetchArticles = () => {
-    api.getArticles(this.props.topic).then((articles) => {
+  fetchArticles = (sort_by) => {
+    api.getArticles(this.props.topic, sort_by).then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   };
@@ -31,6 +32,7 @@ class ArticleList extends Component {
     if (isLoading) return <Loader />;
     return (
       <main className="ArticleList">
+        <SortArticles fetchArticles={this.fetchArticles} />
         {articles.map((article) => {
           return (
             <Link
