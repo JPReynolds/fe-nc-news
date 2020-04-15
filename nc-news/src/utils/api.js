@@ -10,10 +10,14 @@ export const getTopics = () => {
   });
 };
 
-export const getArticles = (topic) => {
-  return request.get('/articles', { params: { topic } }).then(({ data }) => {
-    return data.articles;
-  });
+export const getArticles = (topic, sort_by) => {
+  return request
+    .get('/articles', {
+      params: { topic, sort_by },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
 
 export const getArticle = (article_id) => {
@@ -35,4 +39,17 @@ export const postComment = (article_id, newComment) => {
       return data.comment;
     })
     .catch((err) => console.dir(err));
+};
+
+export const patchVotes = (vote, id, type) => {
+  return request
+    .patch(`/${type}/${id}`, vote)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((err) => console.dir(err));
+};
+
+export const deleteComment = (comment_id) => {
+  return request.delete(`/comments/${comment_id}`);
 };
