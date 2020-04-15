@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArticleBody = (props) => {
-  return <p>{props.body}</p>;
+  return <p className="body__article">{props.body}</p>;
 };
 
 export default ArticleBody;

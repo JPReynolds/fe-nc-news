@@ -8,7 +8,11 @@ const DeleteBtn = (props) => {
     });
   };
 
-  return <button onClick={handleClick}>remove</button>;
+  return (
+    <button className=" btn__delete" onClick={handleClick}>
+      remove
+    </button>
+  );
 };
 
 export default DeleteBtn;

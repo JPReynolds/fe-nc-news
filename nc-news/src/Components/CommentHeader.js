@@ -2,9 +2,9 @@ import React from 'react';
 
 const CommentHeader = (props) => {
   return (
-    <header className="CommentHeader">
-      <p>{props.author}</p>
-      <p>Votes: {props.votes}</p>
+    <header className="header__comment">
+      <p className="author__comment">{props.author}</p>
+      <p className="votes__comment">Votes: {props.votes}</p>
     </header>
   );
 };

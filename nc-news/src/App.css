@@ -15,28 +15,46 @@
   border: solid;
 }
 
-.ArticleList {
+.list__article {
   grid-area: articleList;
 }
 
-.ArticleCard {
-  border: solid;
-}
-
-.ArticleHeader {
-  display: inline-flex;
-}
-
-.CommentCard {
+.card__article {
   border: solid;
   margin: 5px;
 }
 
-.CommentHeader {
+.header__article {
   display: inline-flex;
 }
 
-.commentForm {
+.card__comment {
+  border: solid;
+  margin: 5px;
+}
+
+.header__comment {
+  display: inline-flex;
+}
+
+.form__comment {
   height: 200px;
   margin: 5px;
+  display: grid;
+  grid-template-rows: 30px auto 30px;
+  grid-template-columns: auto;
+  grid-template-areas: 'label' 'input' 'submit';
+}
+
+.title__commentForm {
+  grid-area: label;
+}
+
+.btn__submit {
+  grid-area: submit;
+}
+
+.input__comment {
+  grid-area: input;
+  width: 100%;
 }

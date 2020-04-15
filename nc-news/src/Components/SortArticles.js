@@ -7,7 +7,7 @@ class SortArticles extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="sort__articles">
         <label>
           sort:
           <select

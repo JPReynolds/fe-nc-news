@@ -15,13 +15,20 @@ class CommentsList extends Component {
   render() {
     const { comments } = this.state;
     return (
-      <main>
+      <main className="list__comment">
         <CommentForm
           article_id={this.props.article_id}
           addCommentToList={this.addCommentToList}
+          comment_count={this.props.comment_count}
         />
         {comments.map((comment) => {
-          return <CommentCard comment={comment} key={comment.comment_id} />;
+          return (
+            <CommentCard
+              comment={comment}
+              key={comment.comment_id}
+              removeComment={this.removeComment}
+            />
+          );
         })}
       </main>
     );
@@ -30,6 +37,14 @@ class CommentsList extends Component {
     this.setState((currentState) => {
       return { comments: [newComment, ...currentState.comments] };
     });
+  };
+
+  removeComment = (comment_id) => {
+    const newCommentList = this.state.comments.filter((comment) => {
+      if (comment.comment_id !== comment_id) return true;
+      return false;
+    });
+    this.setState({ comments: newCommentList });
   };
 }
 

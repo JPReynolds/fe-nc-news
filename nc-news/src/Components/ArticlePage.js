@@ -18,7 +18,7 @@ class ArticlePage extends Component {
   render() {
     const { article } = this.state;
     return (
-      <div>
+      <div className="page__article">
         <ArticleCard {...article} />
         <CommentsList
           article_id={this.props.article_id}
