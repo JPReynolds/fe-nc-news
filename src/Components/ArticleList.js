@@ -3,11 +3,13 @@ import * as api from '../utils/api';
 import ArticleCard from './ArticleCard';
 import Loader from './Loader';
 import SortArticles from './SortArticles';
+import ErrorDisplay from './ErrorDisplay';
 
 class ArticleList extends Component {
   state = {
     articles: [],
     isLoading: true,
+    err: null,
   };
 
   componentDidMount() {
@@ -21,14 +23,28 @@ class ArticleList extends Component {
   }
 
   fetchArticles = (sort_by) => {
-    api.getArticles(this.props.topic, sort_by).then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
+    api
+      .getArticles(this.props.topic, sort_by)
+      .then((articles) => {
+        this.setState({ articles, isLoading: false });
+      })
+      .catch((err) => {
+        console.dir(err);
+        const { status, data } = err.response;
+        this.setState({
+          err: {
+            status,
+            msg: data.msg,
+          },
+          isLoading: false,
+        });
+      });
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, err } = this.state;
     if (isLoading) return <Loader />;
+    if (err) return <ErrorDisplay status={err.status} msg={err.msg} />;
     return (
       <main className="list__article">
         <SortArticles fetchArticles={this.fetchArticles} />
