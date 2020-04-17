@@ -51,20 +51,20 @@ class ArticleList extends Component {
           <img
             src="https://cdn.iconscout.com/icon/free/png-256/coding-317-517904.png"
             alt="coding"
-            className="topicIcon"
+            className="topicIcon topicIcon--border"
           />
         ) : this.props.topic === 'football' ? (
           <img
             src="https://p7.hiclipart.com/preview/690/974/369/computer-icons-football-icon-design-football.jpg"
             alt="football"
-            className="topicIcon"
+            className="topicIcon topicIcon--border"
           />
         ) : (
           this.props.topic === 'cooking' && (
             <img
               src="https://image.flaticon.com/icons/png/512/113/113339.png"
               alt="cooking"
-              className="topicIcon"
+              className="topicIcon topicIcon--border"
             />
           )
         )}

@@ -6,7 +6,7 @@ const Header = () => {
     <header className="Header">
       <Link to="/" className="link ncnews">
         <h1>
-          <div className="red">N</div>C-NEWS
+          <div className="red">N</div>C NEWS
         </h1>
       </Link>
 

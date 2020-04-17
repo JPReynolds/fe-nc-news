@@ -9,8 +9,8 @@ const DeleteBtn = (props) => {
   };
 
   return (
-    <button className=" btn__delete" onClick={handleClick}>
-      remove
+    <button className="btn btn__delete" onClick={handleClick}>
+      <img src="/images/bin.jpeg" alt="bin" className="icon__bin" />
     </button>
   );
 };

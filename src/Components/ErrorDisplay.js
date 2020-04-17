@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ErrorDisplay = (props) => {
-  console.log(props);
   const { status, msg } = props;
   return (
     <div>

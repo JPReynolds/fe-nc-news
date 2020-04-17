@@ -33,7 +33,6 @@ class ArticlePage extends Component {
 
   render() {
     const { article, error, isLoading } = this.state;
-    console.log(error);
     if (isLoading) return <Loader />;
     if (error) return <ErrorDisplay status={error.status} msg={error.msg} />;
     return (

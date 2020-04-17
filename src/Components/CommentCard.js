@@ -13,7 +13,6 @@ class CommentCard extends Component {
     return (
       <div className="card__comment">
         <p className="header__comment author__comment">{author}</p>
-        <p className="header__comment votes__comment">Votes: {votes}</p>
         <p className="body__comment">{body}</p>
         {author === this.state.user && (
           <DeleteBtn

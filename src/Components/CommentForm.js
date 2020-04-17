@@ -9,16 +9,27 @@ class CommentForm extends Component {
   render() {
     const { userInput } = this.state;
     return (
-      <form className="form__comment" onSubmit={this.handleSubmitComment}>
+      <form
+        className="form__comment"
+        onSubmit={this.handleSubmitComment}
+        for="submit"
+      >
         <label>
-          <p className="title__commentForm">Write Comment...{''}</p>
-          <input
+          <textarea
             onChange={this.handleInputChange}
             value={userInput}
             className="input__comment"
+            placeholder="Write comment here..."
+            required
           />
         </label>
-        <input type="submit" value="Submit" className="btn__submit " />
+        {/* <input type="submit" value="COMMENT" className="btn btn__submit" /> */}
+        <button className="btn btn__submit" id="submit">
+          COMMENT
+        </button>
+        <button className="btn btn__cancel" onClick={this.handleClick}>
+          CANCEL
+        </button>
       </form>
     );
   }
@@ -35,14 +46,16 @@ class CommentForm extends Component {
       username,
       body: userInput,
     };
-    if (userInput.length !== 0) {
-      api
-        .postComment(this.props.article_id, newComment, username)
-        .then((comment) => {
-          this.props.addCommentToList(comment);
-        });
-      this.setState({ userInput: '' });
-    }
+    api
+      .postComment(this.props.article_id, newComment, username)
+      .then((comment) => {
+        this.props.addCommentToList(comment);
+      });
+    this.setState({ userInput: '' });
+  };
+
+  handleClick = () => {
+    this.setState({ userInput: '' });
   };
 }
 
