@@ -42,8 +42,9 @@ export const postComment = (article_id, newComment) => {
 };
 
 export const patchVotes = (vote, id, type) => {
+  const formattedVotes = { inc_votes: vote };
   return request
-    .patch(`/${type}/${id}`, vote)
+    .patch(`/${type}/${id}`, formattedVotes)
     .then(({ data }) => {
       return data.article;
     })

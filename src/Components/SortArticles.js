@@ -9,7 +9,7 @@ class SortArticles extends React.Component {
     return (
       <form className="sort__articles">
         <label>
-          sort:
+          Sort:
           <select
             value={this.state.sort_by}
             name="sort_by"

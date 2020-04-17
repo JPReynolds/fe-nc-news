@@ -7,23 +7,35 @@ class Voter extends Component {
   };
   render() {
     return (
-      <section>
+      <section className="voter">
         <button
           onClick={() => {
             this.handleClick(1);
           }}
           disabled={this.state.optimisticVotes > 0}
+          className="voter__btn"
         >
-          UP
+          <img
+            src="/images/down-arrow.jpeg"
+            alt="down arrow"
+            className="voter__btn--img voter__btn--up"
+          />
         </button>
-        <p>{this.props.votes + this.state.optimisticVotes} votes</p>
+        <p className="voter__votes">
+          {this.props.votes + this.state.optimisticVotes}
+        </p>
         <button
           onClick={() => {
             this.handleClick(-1);
           }}
           disabled={this.state.optimisticVotes < 0}
+          className="voter__btn"
         >
-          DOWN
+          <img
+            src="/images/down-arrow.jpeg"
+            alt="down arrow"
+            className="voter__btn--img"
+          />
         </button>
       </section>
     );

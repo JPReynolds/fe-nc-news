@@ -9,10 +9,7 @@ class CommentForm extends Component {
   render() {
     const { userInput } = this.state;
     return (
-      <form
-        className="form__comment"
-        onSubmit={() => this.handleSubmitComment(1)}
-      >
+      <form className="form__comment" onSubmit={this.handleSubmitComment}>
         <label>
           <p className="title__commentForm">Write Comment...{''}</p>
           <input
@@ -39,9 +36,11 @@ class CommentForm extends Component {
       body: userInput,
     };
     if (userInput.length !== 0) {
-      api.postComment(this.props.article_id, newComment).then((comment) => {
-        this.props.addCommentToList(comment);
-      });
+      api
+        .postComment(this.props.article_id, newComment, username)
+        .then((comment) => {
+          this.props.addCommentToList(comment);
+        });
       this.setState({ userInput: '' });
     }
   };
