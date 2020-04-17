@@ -8,7 +8,7 @@ class ArticleCard extends React.Component {
   };
 
   render() {
-    const { article_id, body, title, comment_count, topic } = this.props;
+    const { article_id, body, title, comment_count, topic, votes } = this.props;
     return (
       <div className="card__article">
         <Link
