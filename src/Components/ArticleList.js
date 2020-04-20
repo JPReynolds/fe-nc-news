@@ -4,6 +4,7 @@ import ArticleCard from './ArticleCard';
 import Loader from './Loader';
 import SortArticles from './SortArticles';
 import ErrorDisplay from './ErrorDisplay';
+import FilterUser from './FilterUser';
 
 class ArticleList extends Component {
   state = {
@@ -59,23 +60,49 @@ class ArticleList extends Component {
             alt="football"
             className="topicIcon topicIcon--border"
           />
+        ) : this.props.topic === 'cooking' ? (
+          <img
+            src="https://image.flaticon.com/icons/png/512/113/113339.png"
+            alt="cooking"
+            className="topicIcon topicIcon--border"
+          />
         ) : (
-          this.props.topic === 'cooking' && (
+          this.props.path === '/' && (
             <img
-              src="https://image.flaticon.com/icons/png/512/113/113339.png"
+              src="https://images.vexels.com/media/users/3/157231/isolated/preview/7c9a3c3d7e81dc61dfd56a1be6cabc09-simple-house-icon-by-vexels.png"
               alt="cooking"
               className="topicIcon topicIcon--border"
+              id="house-icon"
             />
           )
         )}
-
-        <SortArticles fetchArticles={this.fetchArticles} />
+        <div className="sort">
+          <FilterUser users={this.props.users} />
+          <SortArticles fetchArticles={this.fetchArticles} />
+        </div>
         {articles.map((article) => {
-          return <ArticleCard key={article.article_id} {...article} />;
+          const userAvi = this.props.users.filter((user) => {
+            if (user.username === article.author) return true;
+            return false;
+          });
+          return (
+            <ArticleCard
+              key={article.article_id}
+              {...article}
+              avatar_url={userAvi[0].avatar_url}
+            />
+          );
         })}
       </main>
     );
   }
+  filterByUser = (user) => {
+    const userArticles = this.state.articles.filter((article) => {
+      if (article.user === user) return true;
+      return false;
+    });
+    return userArticles;
+  };
 }
 
 export default ArticleList;
