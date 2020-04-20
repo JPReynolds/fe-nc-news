@@ -12,7 +12,7 @@ class CommentForm extends Component {
       <form
         className="form__comment"
         onSubmit={this.handleSubmitComment}
-        for="submit"
+        htmlFor="submit"
       >
         <label>
           <textarea

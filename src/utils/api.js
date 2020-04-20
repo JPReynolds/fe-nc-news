@@ -54,3 +54,12 @@ export const patchVotes = (vote, id, type) => {
 export const deleteComment = (comment_id) => {
   return request.delete(`/comments/${comment_id}`);
 };
+
+export const getUsers = () => {
+  return request
+    .get('/users')
+    .then(({ data }) => {
+      return data.users;
+    })
+    .catch((err) => console.dir(err));
+};

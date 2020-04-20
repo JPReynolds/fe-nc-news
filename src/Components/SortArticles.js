@@ -13,8 +13,9 @@ class SortArticles extends React.Component {
             value={this.state.sort_by}
             name="sort_by"
             onChange={this.handleChange}
-            className="select__articles"
+            className="dropdown"
           >
+            <option>SORT BY</option>
             <option value="created_at">Latest</option>
             <option value="votes">Most Votes</option>
             <option value="comment_count">Most Comments</option>

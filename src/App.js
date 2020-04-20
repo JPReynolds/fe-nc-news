@@ -24,9 +24,17 @@ class App extends Component {
         <NavBar />
         <Router>
           <ArticleList path="/" users={this.state.users} />
-          <ArticleList path="/topics/:topic" />
-          <ArticlePage path="/topics/:topic/:article_id" />
-          <ErrorDisplay default status={404} msg="Page not found" />
+          <ArticleList path="/topics/:topic" users={this.state.users} />
+          <ArticlePage
+            path="/topics/:topic/:article_id"
+            users={this.state.users}
+          />
+          <ErrorDisplay
+            default
+            status={404}
+            msg="Page not found"
+            users={this.state.users}
+          />
         </Router>
         <footer className="footer"></footer>
       </div>

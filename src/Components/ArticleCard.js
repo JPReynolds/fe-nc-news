@@ -34,11 +34,9 @@ class ArticleCard extends React.Component {
               alt="comment_icon"
             />
             <p className="footer__numberOfComments">{comment_count}</p>
-          </footer>
-          <p className="author__article">
-            Posted by: {author}
+            <p className="author__article">Posted by: {author}</p>
             <img src={this.props.avatar_url} alt="avi" className="icon__user" />
-          </p>
+          </footer>
         </Link>
         <Voter id={article_id} votes={votes} type={this.state.type} />
       </div>
