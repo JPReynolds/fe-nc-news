@@ -46,6 +46,7 @@ class ArticleList extends Component {
     const { articles, isLoading, err } = this.state;
     if (isLoading) return <Loader />;
     if (err) return <ErrorDisplay status={err.status} msg={err.msg} />;
+
     return (
       <main className="list__article">
         {this.props.topic === 'coding' ? (

@@ -68,11 +68,11 @@
   .sort,
   .card__comment,
   .card__article {
-    margin: 10px 50px 10px 50px !important;
+    margin: 10px 150px 10px 100px !important;
   }
 
   .form__comment {
-    margin: 40px 50px 40px 50px !important;
+    margin: 40px 150px 40px 100px !important;
   }
 
   .App {
@@ -84,6 +84,10 @@
 
   .sort {
     padding-left: 0 !important;
+  }
+
+  .topicIcon {
+    margin-right: 60px !important;
   }
 }
 
@@ -196,6 +200,7 @@ li {
 .topic__link:hover {
   border-bottom: ridge rgb(209, 24, 24);
   position: absolute;
+  cursor: pointer;
 }
 
 .topicIcon__nav {
@@ -232,24 +237,26 @@ li {
 
 .filter__user {
   align-items: center;
+  padding: 20px 20px 10px 0;
 }
 
 .sort__articles {
   align-items: center;
   margin: none;
+  padding: 20px 0 10px 0;
 }
 
 .dropdown {
+  padding: 5px;
+  box-shadow: 0 2px 1px 0 hsla(0, 0%, 0%, 0.068);
+  border: 1px solid rgba(138, 130, 130, 0.349);
   display: block;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   color: #444;
   line-height: 1.3;
-  padding: 0.2em 0.8em 0.2em 0.1em;
   box-sizing: border-box;
   margin: 0;
-  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
-  border-radius: 0.5em;
   appearance: none;
   background-color: #fff;
   background-image: url('/images/down-arrow.jpeg');
@@ -260,7 +267,7 @@ li {
 /* ArticleCard */
 
 .card__article {
-  margin: 15px 20px 0px 20px;
+  margin: 15px 40px 0px 20px;
   box-shadow: 0 2px 1px 0 hsla(0, 0%, 0%, 0.068);
 
   border: 1px solid rgba(138, 130, 130, 0.349);
@@ -277,6 +284,13 @@ li {
 
 .card__article:hover {
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.479);
+}
+
+.card__article:hover,
+.filter__user:hover,
+.sort__articles:hover,
+.dropdown:hover {
+  cursor: pointer;
 }
 
 .link__article {
@@ -405,7 +419,7 @@ li {
 
 .card__comment {
   background-color: white;
-  margin: 15px 20px 0px 20px;
+  margin: 15px 40px 0px 20px;
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   border: 0;
   border-radius: 5px;
@@ -448,7 +462,8 @@ li {
 /* CommentForm */
 
 .form__comment {
-  margin: 40px 20px 40px 20px;
+  margin: 20px 40px 40px 20px;
+
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   border: 0;
   border-radius: 5px;

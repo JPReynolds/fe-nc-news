@@ -33,11 +33,21 @@ class ArticlePage extends Component {
 
   render() {
     const { article, error, isLoading } = this.state;
+
+    const userAvi = this.props.users.filter((user) => {
+      if (user.username === article.author) return true;
+      return false;
+    });
+
     if (isLoading) return <Loader />;
     if (error) return <ErrorDisplay status={error.status} msg={error.msg} />;
     return (
       <div className="page__article">
-        <ArticleCard {...article} />
+        <ArticleCard
+          {...article}
+          users={this.props.users}
+          avatar_url={userAvi[0].avatar_url}
+        />
         <CommentsList
           article_id={this.props.article_id}
           comment_count={article.comment_count}
