@@ -11,6 +11,7 @@ class ArticleList extends Component {
     articles: [],
     isLoading: true,
     err: null,
+    userArticles: [],
   };
 
   componentDidMount() {
@@ -18,6 +19,7 @@ class ArticleList extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log(prevProps);
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles();
     }
@@ -43,9 +45,15 @@ class ArticleList extends Component {
   };
 
   render() {
-    const { articles, isLoading, err } = this.state;
+    const { articles, isLoading, err, userArticles } = this.state;
     if (isLoading) return <Loader />;
     if (err) return <ErrorDisplay status={err.status} msg={err.msg} />;
+    let articlesArray = [];
+    if (userArticles.length !== 0) {
+      articlesArray = userArticles;
+    } else {
+      articlesArray = articles;
+    }
 
     return (
       <main className="list__article">
@@ -78,10 +86,13 @@ class ArticleList extends Component {
           )
         )}
         <div className="sort">
-          <FilterUser users={this.props.users} />
+          <FilterUser
+            users={this.props.users}
+            filterByUser={this.filterByUser}
+          />
           <SortArticles fetchArticles={this.fetchArticles} />
         </div>
-        {articles.map((article) => {
+        {articlesArray.map((article) => {
           const userAvi = this.props.users.filter((user) => {
             if (user.username === article.author) return true;
             return false;
@@ -99,10 +110,10 @@ class ArticleList extends Component {
   }
   filterByUser = (user) => {
     const userArticles = this.state.articles.filter((article) => {
-      if (article.user === user) return true;
+      if (article.author === user) return true;
       return false;
     });
-    return userArticles;
+    this.setState({ userArticles: userArticles });
   };
 }
 
