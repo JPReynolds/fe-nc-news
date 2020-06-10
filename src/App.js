@@ -1,6 +1,5 @@
 import './App.css';
 import Header from './Components/Header';
-import NavBar from './Components/NavBar';
 import { Router } from '@reach/router';
 import ArticleList from './Components/ArticleList';
 import ArticlePage from './Components/ArticlePage';
@@ -21,22 +20,25 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <NavBar />
-        <Router>
-          <ArticleList path="/" users={this.state.users} />
-          <ArticleList path="/topics/:topic" users={this.state.users} />
-          <ArticlePage
-            path="/topics/:topic/:article_id"
-            users={this.state.users}
-          />
-          <ErrorDisplay
-            default
-            status={404}
-            msg="Page not found"
-            users={this.state.users}
-          />
-        </Router>
-        <footer className="footer"></footer>
+        <div className="main">
+          <Router>
+            <ArticleList path="/" users={this.state.users} />
+            <ArticleList path="/topics/:topic" users={this.state.users} />
+            <ArticlePage
+              path="/topics/:topic/:article_id"
+              users={this.state.users}
+            />
+            <ErrorDisplay
+              default
+              status={404}
+              msg="Page not found"
+              users={this.state.users}
+            />
+          </Router>
+        </div>
+        <footer className="footer">
+          <p>Created by Jordan Reynolds</p>
+        </footer>
       </div>
     );
   }

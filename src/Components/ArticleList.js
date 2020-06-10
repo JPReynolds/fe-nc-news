@@ -19,7 +19,6 @@ class ArticleList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
     if (prevProps.topic !== this.props.topic) {
       this.fetchArticles();
     }
