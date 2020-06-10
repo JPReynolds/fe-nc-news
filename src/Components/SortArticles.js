@@ -1,4 +1,5 @@
 import React from 'react';
+import Select from 'react-select';
 
 class SortArticles extends React.Component {
   state = {
@@ -6,26 +7,23 @@ class SortArticles extends React.Component {
   };
 
   render() {
+    const options = [
+      { value: 'created_at', label: 'Latest' },
+      { value: 'votes', label: 'Most Votes' },
+      { value: 'comment_count', label: 'Most Comments' },
+    ];
     return (
-      <form className="sort__articles">
-        <label>
-          <select
-            value={this.state.sort_by}
-            name="sort_by"
-            onChange={this.handleChange}
-            className="dropdown"
-          >
-            <option>SORT BY</option>
-            <option value="created_at">Latest</option>
-            <option value="votes">Most Votes</option>
-            <option value="comment_count">Most Comments</option>
-          </select>
-        </label>
-      </form>
+      <Select
+        placeholder="FILTER"
+        onChange={this.handleChange}
+        options={options}
+        className="dropdown"
+      />
     );
   }
-  handleChange = (event) => {
-    this.setState({ sort_by: event.target.value }, () => {
+  handleChange = (sort_by) => {
+    console.log(sort_by);
+    this.setState({ sort_by: sort_by.value }, () => {
       this.props.fetchArticles(this.state.sort_by);
     });
   };

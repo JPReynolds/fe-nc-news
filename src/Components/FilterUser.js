@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
 
 class FilterUser extends Component {
   state = {
     username: '',
   };
   render() {
+    const options = this.props.users.map((user) => {
+      return { value: user.username, label: user.username };
+    });
     return (
-      <form className="filter__user">
-        <label></label>
-        <select className="dropdown" onChange={this.handleChange}>
-          <option>USER</option>
-          {this.props.users.map((user) => {
-            return (
-              <option key={user.username} value={`${user.username}`}>
-                {user.username}
-              </option>
-            );
-          })}
-        </select>
-      </form>
+      <Select
+        onChange={this.handleChange}
+        options={options}
+        className="dropdown"
+        placeholder="USER"
+      />
     );
   }
-  handleChange = (event) => {
-    this.setState({ username: event.target.value }, () => {
+  handleChange = (username) => {
+    this.setState({ username: username.value }, () => {
       this.props.filterByUser(this.state.username);
     });
   };
