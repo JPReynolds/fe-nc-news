@@ -12,6 +12,7 @@ class ArticleList extends Component {
     isLoading: true,
     err: null,
     userArticles: [],
+    page: 'articleList',
   };
 
   componentDidMount() {
@@ -64,7 +65,7 @@ class ArticleList extends Component {
           />
         ) : this.props.topic === 'football' ? (
           <img
-            src="https://p7.hiclipart.com/preview/690/974/369/computer-icons-football-icon-design-football.jpg"
+            src="https://lh3.googleusercontent.com/proxy/ohLAQUq9S17gTdj4r-U_IOmzaKsdeRTg44JM0MI7dCAK3mvtgHw5HkE9vOeuVSFP6vur5ISyLtAcafAQMn3Lnbo7lNrpDr0DkbLsBHxoGpdqtUv-KekG9QawXs5DnQe9sek"
             alt="football"
             className="topicIcon topicIcon--border"
           />
@@ -92,15 +93,11 @@ class ArticleList extends Component {
           <SortArticles fetchArticles={this.fetchArticles} />
         </div>
         {articlesArray.map((article) => {
-          const userAvi = this.props.users.filter((user) => {
-            if (user.username === article.author) return true;
-            return false;
-          });
           return (
             <ArticleCard
               key={article.article_id}
               {...article}
-              avatar_url={userAvi[0].avatar_url}
+              page={this.state.page}
             />
           );
         })}

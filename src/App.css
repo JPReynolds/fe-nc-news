@@ -2,12 +2,86 @@
   .topicIcon {
     height: 40px !important;
     width: 40px !important;
-    padding-top: 0 !important;
+    padding-top: 20px !important;
+  }
+
+  .NavBar__list {
+    flex-direction: column !important;
+  }
+
+  .list__topic {
+    margin: 5px 30px 5px 30px !important;
+  }
+
+  .title {
+    margin: 10px 10px 10px 10px !important;
+    padding: 0 !important;
+  }
+
+  .card__article {
+    margin: 15px 5px 0px 5px !important;
+  }
+
+  .card__comment {
+    margin: 15px 5px 0px 5px !important;
+  }
+
+  .form__comment {
+    margin: 15px 5px 0px 5px !important;
+  }
+
+  .sort {
+    padding: 0 !important;
+    margin: 30px 5px 0px 5px !important;
   }
 
   .topicIcon__nav {
     height: 25px !important;
     width: 25px !important;
+  }
+
+  .Header {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .list__topic {
+    border-right: none !important;
+  }
+
+  .body__article {
+    font-size: 0.8em !important;
+  }
+
+  .body__article--articleList {
+    overflow: hidden !important;
+    height: 100px !important;
+  }
+
+  .title__article {
+    font-size: 1em !important;
+  }
+
+  .footer__numberOfComments {
+    font-size: 0.8em !important;
+  }
+
+  .author__article {
+    font-size: 0.7em !important;
+  }
+
+  .body__comment {
+    font-size: 0.8em !important;
+  }
+
+  .author__comment {
+    font-size: 0.8em !important;
+  }
+
+  .btn {
+    font-size: 0.8em !important;
+    width: 80px !important;
   }
 }
 
@@ -20,7 +94,7 @@
 
 .App {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 2.5fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas: 'header header header' '. main .' 'footer footer footer';
   background-color: rgba(180, 192, 202, 0.63);
@@ -54,7 +128,7 @@
   font-weight: 650;
   letter-spacing: 0.05em;
   border-bottom: solid rgb(209, 24, 24);
-  margin: 15px 10px 15px 20px;
+  margin: 10px 10px 10px 20px;
 }
 
 .userIcon {
@@ -112,8 +186,9 @@
 /* Footer */
 .footer {
   grid-area: footer;
-  background-color: white;
   margin-top: 50px;
+  padding-left: 5px;
+  border-top: 1px solid rgba(138, 130, 130, 0.637);
 }
 
 /* ArticleList */
@@ -143,8 +218,10 @@
 }
 
 .dropdown {
-  width: 150px;
-  margin: 0 5px 0 5px;
+  width: 120px;
+  margin: 0 10px 0 0;
+  border: 1px solid rgba(138, 130, 130, 0.637);
+  border-radius: 5px;
 }
 /* ArticleCard */
 
@@ -208,7 +285,6 @@
   padding: 12px;
   margin: 0;
   color: hsl(0, 0%, 24%);
-  overflow: hidden;
   border-top: 1px solid rgba(138, 130, 130, 0.349);
   border-bottom: 1px solid rgba(138, 130, 130, 0.226);
   /* box-shadow: 0 2px 6px 0 hsla(0, 2%, 18%, 0.2); */
@@ -257,6 +333,8 @@
   grid-area: numComments;
   align-self: center;
   margin: 0;
+  font-weight: 600;
+  font-size: 0.9em;
 }
 
 /* Voter */
@@ -369,6 +447,7 @@
   font-weight: 600;
   color: hsl(0, 0%, 24%);
   outline: none;
+  background-color: white;
 }
 
 .btn:hover {
@@ -396,6 +475,7 @@
   padding: 0;
   margin: 10px;
   font-size: 15px;
+  font-family: Gill Sans, sans-serif;
 }
 
 textarea {

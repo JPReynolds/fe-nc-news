@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import * as api from '../utils/api';
-import Loader from './Loader';
 
 class NavBar extends Component {
-  state = { topics: [], isLoading: true };
+  state = { topics: [] };
 
   componentDidMount() {
     api.getTopics().then((topics) => {
-      this.setState({ topics, isLoading: false });
+      this.setState({ topics });
     });
   }
 
   render() {
-    const { topics, isLoading } = this.state;
-    if (isLoading) return <Loader />;
+    const { topics } = this.state;
 
     return (
       <nav className="NavBar">

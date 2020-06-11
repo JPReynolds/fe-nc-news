@@ -16,6 +16,7 @@ class ArticleCard extends React.Component {
       topic,
       votes,
       author,
+      page,
     } = this.props;
 
     return (
@@ -25,8 +26,15 @@ class ArticleCard extends React.Component {
           className="link link__article"
         >
           <p className="title__article">{title}</p>
-          {/* <p className="author__article">{this.props.author}</p> */}
-          <p className="body__article">{body}</p>
+          <p
+            className={
+              page === 'article'
+                ? 'body__article body__article--article'
+                : 'body__article body__article--articleList'
+            }
+          >
+            {body}
+          </p>
           <footer className="footer__article">
             <img
               className="commentIcon"
@@ -35,7 +43,6 @@ class ArticleCard extends React.Component {
             />
             <p className="footer__numberOfComments">{comment_count} Comments</p>
             <p className="author__article">Posted by: {author}</p>
-            <img src={this.props.avatar_url} alt="avi" className="icon__user" />
           </footer>
         </Link>
         <Voter id={article_id} votes={votes} type={this.state.type} />
