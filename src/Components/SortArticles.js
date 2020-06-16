@@ -22,7 +22,6 @@ class SortArticles extends React.Component {
     );
   }
   handleChange = (sort_by) => {
-    console.log(sort_by);
     this.setState({ sort_by: sort_by.value }, () => {
       this.props.fetchArticles(this.state.sort_by);
     });
