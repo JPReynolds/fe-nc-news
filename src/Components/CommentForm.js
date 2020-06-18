@@ -23,7 +23,6 @@ class CommentForm extends Component {
             required
           />
         </label>
-        {/* <input type="submit" value="COMMENT" className="btn btn__submit" /> */}
         <button className="btn btn__submit" id="submit">
           COMMENT
         </button>
