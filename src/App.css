@@ -1,16 +1,21 @@
 @media only screen and (max-width: 600px) {
+  .App {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
   .topicIcon {
     height: 40px !important;
     width: 40px !important;
     padding-top: 20px !important;
   }
 
-  .NavBar__list {
-    flex-direction: column !important;
+  .ncnews {
+    padding: 0 !important;
   }
 
   .list__topic {
-    margin: 5px 30px 5px 30px !important;
+    margin: 5px 0 5px 0 !important;
   }
 
   .title {
@@ -19,20 +24,25 @@
   }
 
   .card__article {
-    margin: 15px 5px 0px 5px !important;
+    margin: 15px 10px 0px 10px !important;
   }
 
   .card__comment {
-    margin: 15px 5px 0px 5px !important;
+    margin: 15px 10px 0px 10px !important;
   }
 
   .form__comment {
-    margin: 15px 5px 0px 5px !important;
+    margin: 15px 10px 30px 10px !important;
+  }
+
+  .voter__btn--img {
+    height: 25px !important;
+    width: 25px !important;
   }
 
   .sort {
     padding: 0 !important;
-    margin: 30px 5px 0px 5px !important;
+    margin: 30px 10px 0px 10px !important;
   }
 
   .topicIcon__nav {
@@ -56,7 +66,6 @@
 
   .body__article--articleList {
     overflow: hidden !important;
-    height: 100px !important;
   }
 
   .title__article {
@@ -85,16 +94,15 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .App {
-    display: flex !important;
-    flex-direction: column !important;
+    grid-template-columns: 1fr 5fr 1fr !important;
   }
 }
 
 .App {
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas: 'header header header' '. main .' 'footer footer footer';
   background-color: rgba(180, 192, 202, 0.63);
@@ -240,7 +248,7 @@
   background-color: white;
   letter-spacing: 0.7px;
   display: grid;
-  grid-template-columns: auto 50px;
+  grid-template-columns: 11fr 1fr;
   grid-template-rows: auto 40px;
   grid-template-areas:
     'main votes'
@@ -401,7 +409,7 @@
   border: 0;
   border-radius: 5px;
   display: grid;
-  grid-template-columns: auto 50px;
+  grid-template-columns: 11fr 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     'user votes'
@@ -445,7 +453,7 @@
   border: 0;
   border-radius: 5px;
   display: grid;
-  grid-template-rows: 2.5fr auto;
+  grid-template-rows: auto auto;
   grid-template-columns: 6fr 1fr;
   grid-template-areas: 'input input' 'submit cancel';
   background-color: white;
@@ -502,6 +510,7 @@ textarea {
 
 .loaderSpinner {
   height: 1000px;
+  place-self: center;
 }
 
 .lds-roller {
